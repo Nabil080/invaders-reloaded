@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3 uid="uid://c87bvplxwqo0n"]
+
+[ext_resource type="Script" uid="uid://byd6heu748i5x" path="res://enemies/enemy_data.gd" id="2_ljsey"]
+[ext_resource type="Texture2D" uid="uid://b2bl6reknxqho" path="res://assets/main-Sheet.png" id="3_1fm2k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6hes"]
+atlas = ExtResource("3_1fm2k")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tupb"]
+atlas = ExtResource("3_1fm2k")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eqvla"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6hes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tupb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_ljsey")
+sprite_frames = SubResource("SpriteFrames_eqvla")
+color = Color(0.2901961, 0.75686276, 0.87058824, 1)
+cooldown = 1.0
+shield_time = 1.0
+metadata/_custom_type_script = "uid://byd6heu748i5x"

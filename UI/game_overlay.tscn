@@ -1,0 +1,271 @@
+[gd_scene load_steps=19 format=3 uid="uid://cbdjvdrfyft27"]
+
+[ext_resource type="Script" uid="uid://byo8hwi82anv7" path="res://UI/game_overlay.gd" id="1_abec6"]
+[ext_resource type="Texture2D" uid="uid://dukwbus53x75c" path="res://assets/Stars_Background_Black.png" id="2_471gc"]
+[ext_resource type="Texture2D" uid="uid://b8gbhoci7b8wm" path="res://assets/FallingStar_Sprites.png" id="3_tpp8o"]
+[ext_resource type="AudioStream" uid="uid://3l4jcgd0xula" path="res://assets/coin-fx.wav" id="4_dhm15"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abec6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhm15"]
+atlas = ExtResource("3_tpp8o")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6ug8"]
+atlas = ExtResource("3_tpp8o")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgp2r"]
+atlas = ExtResource("3_tpp8o")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv1k5"]
+atlas = ExtResource("3_tpp8o")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw2mo"]
+atlas = ExtResource("3_tpp8o")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jg8q"]
+atlas = ExtResource("3_tpp8o")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3lih"]
+atlas = ExtResource("3_tpp8o")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbrm3"]
+atlas = ExtResource("3_tpp8o")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjadw"]
+atlas = ExtResource("3_tpp8o")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ndd26"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhm15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6ug8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgp2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qv1k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw2mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jg8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3lih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbrm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjadw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_wej24"]
+resource_name = "FallingStar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FallingStar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(285, 40), Vector2(40.223602, 243.21057)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FallingStar")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"default", 1.0, false],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"falling_star"
+}]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/StarSound")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_dhm15")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="Animation" id="Animation_tpp8o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FallingStar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(285.31586, 37.973694)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ofrct"]
+_data = {
+&"FallingStar": SubResource("Animation_wej24"),
+&"RESET": SubResource("Animation_tpp8o")
+}
+
+[node name="GameOverlay" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_abec6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_abec6")
+
+[node name="ScoreContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+offset_right = 40.516792
+offset_bottom = 12.0
+theme_override_constants/separation = 8
+
+[node name="ScoreLabel" type="Label" parent="Panel/ScoreContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "SCORE"
+
+[node name="ScoreValue" type="Label" parent="Panel/ScoreContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "0"
+
+[node name="WaveContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.258392
+offset_right = 20.258392
+offset_bottom = 12.0
+grow_horizontal = 2
+theme_override_constants/separation = 8
+
+[node name="WaveLabel" type="Label" parent="Panel/WaveContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "WAVE"
+
+[node name="WaveValue" type="Label" parent="Panel/WaveContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "0"
+
+[node name="LivesContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -34.0
+offset_bottom = 12.0
+grow_horizontal = 0
+theme_override_constants/separation = 8
+
+[node name="LivesLabel" type="Label" parent="Panel/LivesContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "LIVES"
+
+[node name="LivesValue" type="Label" parent="Panel/LivesContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+visible = false
+modulate = Color(1, 1, 1, 0.45882353)
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_471gc")
+expand_mode = 1
+
+[node name="FallingStar" type="AnimatedSprite2D" parent="."]
+process_mode = 1
+z_index = -5
+position = Vector2(285.31586, 37.973694)
+sprite_frames = SubResource("SpriteFrames_ndd26")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 1
+libraries = {
+&"": SubResource("AnimationLibrary_ofrct")
+}
+
+[node name="StarSound" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="DifficultyIncreaseLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+offset_left = 59.71292
+offset_top = 82.10531
+offset_right = 266.71292
+offset_bottom = 97.10531
+bbcode_enabled = true
+text = "[shake]Difficulty Increased ![/shake]"

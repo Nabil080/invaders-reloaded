@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="BulletData" load_steps=5 format=3 uid="uid://hk41ik0cwpuf"]
+
+[ext_resource type="Script" uid="uid://c2230baltavst" path="res://bullets/bullet_data.gd" id="1_nolrt"]
+[ext_resource type="Texture2D" uid="uid://b2bl6reknxqho" path="res://assets/main-Sheet.png" id="2_xxks4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suji7"]
+atlas = ExtResource("2_xxks4")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gncgr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suji7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_nolrt")
+sprite_frames = SubResource("SpriteFrames_gncgr")
+direction = Vector2(0, -1)
+layer = 8
+mask = 21
+metadata/_custom_type_script = "uid://c2230baltavst"

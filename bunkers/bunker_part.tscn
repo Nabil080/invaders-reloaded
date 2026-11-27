@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://bj25ivyct467d"]
+
+[ext_resource type="Script" uid="uid://dqe3k7ay2jdqe" path="res://bunkers/bunker_part.gd" id="1_lbjel"]
+[ext_resource type="Texture2D" uid="uid://djbmll3pu1viy" path="res://assets/bunker-Sheet.png" id="1_t7eqi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kid17"]
+atlas = ExtResource("1_t7eqi")
+region = Rect2(0, 0, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsx0x"]
+atlas = ExtResource("1_t7eqi")
+region = Rect2(0, 10, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bwut"]
+atlas = ExtResource("1_t7eqi")
+region = Rect2(0, 20, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv2h7"]
+atlas = ExtResource("1_t7eqi")
+region = Rect2(0, 30, 9, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6qfco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kid17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsx0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bwut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv2h7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbjel"]
+atlas = ExtResource("1_t7eqi")
+region = Rect2(0, 0, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arps2"]
+atlas = ExtResource("1_t7eqi")
+region = Rect2(0, 10, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axtm8"]
+atlas = ExtResource("1_t7eqi")
+region = Rect2(0, 20, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poo6c"]
+atlas = ExtResource("1_t7eqi")
+region = Rect2(0, 30, 9, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kid17"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbjel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arps2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axtm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poo6c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsx0x"]
+size = Vector2(8.950138, 4.9717665)
+
+[node name="BunkerPart" type="StaticBody2D"]
+collision_mask = 0
+script = ExtResource("1_lbjel")
+sprites = SubResource("SpriteFrames_6qfco")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kid17")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.017059326, 0.008767605)
+shape = SubResource("RectangleShape2D_wsx0x")

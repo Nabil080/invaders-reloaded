@@ -1,0 +1,137 @@
+[gd_scene load_steps=17 format=3 uid="uid://dojn2pa4mpk8a"]
+
+[ext_resource type="PackedScene" uid="uid://d3chiwb5baxu" path="res://core/player.tscn" id="1_d3un6"]
+[ext_resource type="Script" uid="uid://c6vp2s6apwi1h" path="res://core/game.gd" id="1_sjcnv"]
+[ext_resource type="Script" uid="uid://dsyju3ixky06f" path="res://core/enemy_manager.gd" id="3_8xnxh"]
+[ext_resource type="PackedScene" uid="uid://cbdjvdrfyft27" path="res://UI/game_overlay.tscn" id="4_a04qp"]
+[ext_resource type="AudioStream" uid="uid://cflb40uaavggs" path="res://assets/march_1.mp3" id="5_bpu47"]
+[ext_resource type="PackedScene" uid="uid://hii1svl4ngxt" path="res://bunkers/bunker.tscn" id="5_sjcnv"]
+[ext_resource type="PackedScene" uid="uid://immgj8kcnxsp" path="res://UI/game_over_menu.tscn" id="6_cjuek"]
+[ext_resource type="AudioStream" uid="uid://d1w71v4pet8bv" path="res://assets/march_2.mp3" id="6_gcgb4"]
+[ext_resource type="AudioStream" uid="uid://duub26pyp83jb" path="res://assets/march_3.mp3" id="7_8bifg"]
+[ext_resource type="PackedScene" uid="uid://c1llhmfrcls5p" path="res://UI/pause_menu.tscn" id="7_vhpdd"]
+[ext_resource type="AudioStream" uid="uid://b71bdp2msmoxi" path="res://assets/march_4.mp3" id="8_r8boq"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_d3un6"]
+b = Vector2(0, 184)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5sg27"]
+a = Vector2(-320, 0)
+b = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xnxh"]
+size = Vector2(20, 183.80386)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fdp5g"]
+playback_mode = 2
+streams_count = 4
+stream_0/stream = ExtResource("5_bpu47")
+stream_1/stream = ExtResource("6_gcgb4")
+stream_2/stream = ExtResource("7_8bifg")
+stream_3/stream = ExtResource("8_r8boq")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpu47"]
+size = Vector2(340.0838, 20)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_sjcnv")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+shape = SubResource("SegmentShape2D_d3un6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(320, 0)
+shape = SubResource("SegmentShape2D_d3un6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(320, 0)
+shape = SubResource("SegmentShape2D_5sg27")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(320, 184)
+shape = SubResource("SegmentShape2D_5sg27")
+
+[node name="Player" parent="." instance=ExtResource("1_d3un6")]
+position = Vector2(160, 168)
+
+[node name="Bunkers" type="Node2D" parent="."]
+
+[node name="Bunker" parent="Bunkers" instance=ExtResource("5_sjcnv")]
+position = Vector2(160.46147, 147)
+
+[node name="Bunker5" parent="Bunkers" instance=ExtResource("5_sjcnv")]
+position = Vector2(208.461, 147)
+
+[node name="Bunker6" parent="Bunkers" instance=ExtResource("5_sjcnv")]
+position = Vector2(256.461, 147)
+
+[node name="Bunker7" parent="Bunkers" instance=ExtResource("5_sjcnv")]
+position = Vector2(304.461, 147)
+
+[node name="Bunker2" parent="Bunkers" instance=ExtResource("5_sjcnv")]
+position = Vector2(112.461, 147)
+
+[node name="Bunker3" parent="Bunkers" instance=ExtResource("5_sjcnv")]
+position = Vector2(64.461, 147)
+
+[node name="Bunker4" parent="Bunkers" instance=ExtResource("5_sjcnv")]
+position = Vector2(16.461, 147)
+
+[node name="EnemyManager" type="Node2D" parent="."]
+position = Vector2(160, 20)
+script = ExtResource("3_8xnxh")
+
+[node name="EnemiesMarker" type="Marker2D" parent="EnemyManager"]
+
+[node name="MovementTimer" type="Timer" parent="EnemyManager"]
+autostart = true
+
+[node name="Walls" type="Area2D" parent="EnemyManager"]
+collision_layer = 0
+collision_mask = 4
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyManager/Walls"]
+position = Vector2(160.00043, 72.51851)
+shape = SubResource("RectangleShape2D_8xnxh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="EnemyManager/Walls"]
+position = Vector2(-160, 72.51851)
+shape = SubResource("RectangleShape2D_8xnxh")
+
+[node name="MothershipMarker" type="Marker2D" parent="EnemyManager"]
+position = Vector2(174.72818, -8)
+
+[node name="Music" type="AudioStreamPlayer" parent="EnemyManager"]
+stream = SubResource("AudioStreamRandomizer_fdp5g")
+bus = &"Music"
+
+[node name="Goal" type="Area2D" parent="EnemyManager"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyManager/Goal"]
+position = Vector2(0.17971802, 124.557434)
+shape = SubResource("RectangleShape2D_bpu47")
+
+[node name="GameOverlay" parent="." instance=ExtResource("4_a04qp")]
+
+[node name="GameOverMenu" parent="." instance=ExtResource("6_cjuek")]
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_vhpdd")]
+visible = false
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="death_ended" from="Player" to="." method="_on_player_death_ended"]
+[connection signal="death_started" from="Player" to="." method="_on_player_death_started"]
+[connection signal="player_shot" from="Player" to="." method="_on_player_player_shot"]
+[connection signal="enemy_died" from="EnemyManager" to="." method="_on_enemy_manager_enemy_died"]
+[connection signal="wave_cleared" from="EnemyManager" to="." method="_on_enemy_manager_wave_cleared"]
+[connection signal="timeout" from="EnemyManager/MovementTimer" to="EnemyManager" method="_on_movement_timer_timeout"]
+[connection signal="body_entered" from="EnemyManager/Walls" to="EnemyManager" method="_on_walls_body_entered"]
+[connection signal="body_entered" from="EnemyManager/Goal" to="." method="_on_goal_body_entered"]
+[connection signal="color_changed" from="PauseMenu" to="." method="_on_pause_menu_color_changed"]

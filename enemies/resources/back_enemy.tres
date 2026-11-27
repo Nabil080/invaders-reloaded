@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3 uid="uid://wcvrrcjqjvl6"]
+
+[ext_resource type="Resource" uid="uid://b36vrk6mnshnk" path="res://bullets/resources/wave_bullet.tres" id="1_lk5lm"]
+[ext_resource type="Script" uid="uid://byd6heu748i5x" path="res://enemies/enemy_data.gd" id="2_eqvla"]
+[ext_resource type="Texture2D" uid="uid://b2bl6reknxqho" path="res://assets/main-Sheet.png" id="3_uo0hk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvx7o"]
+atlas = ExtResource("3_uo0hk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk5lm"]
+atlas = ExtResource("3_uo0hk")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eqvla"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvx7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk5lm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_eqvla")
+sprite_frames = SubResource("SpriteFrames_eqvla")
+color = Color(0.9098039, 0.31764707, 0.6627451, 1)
+score = 25
+bullet_data = ExtResource("1_lk5lm")
+cooldown = 3.0
+metadata/_custom_type_script = "uid://byd6heu748i5x"

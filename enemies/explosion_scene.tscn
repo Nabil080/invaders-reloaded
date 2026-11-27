@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://btmp75ivjghwy"]
+
+[ext_resource type="Texture2D" uid="uid://b2bl6reknxqho" path="res://assets/main-Sheet.png" id="1_ahs23"]
+[ext_resource type="AudioStream" uid="uid://bwabbpi0lks5" path="res://assets/explosion.wav" id="2_55v52"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55v52"]
+atlas = ExtResource("1_ahs23")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="Animation" id="Animation_ahs23"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_gh3ul"]
+resource_name = "explode"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q7bdq"]
+_data = {
+&"RESET": SubResource("Animation_ahs23"),
+&"explode": SubResource("Animation_gh3ul")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gh3ul"]
+streams_count = 1
+stream_0/stream = ExtResource("2_55v52")
+
+[node name="ExplosionScene" type="Node2D"]
+process_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_55v52")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_q7bdq")
+}
+autoplay = "explode"
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_gh3ul")
+autoplay = true
+bus = &"Sound Effects"

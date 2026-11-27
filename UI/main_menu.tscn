@@ -1,0 +1,474 @@
+[gd_scene load_steps=22 format=3 uid="uid://bfjfd2uuu8103"]
+
+[ext_resource type="Script" uid="uid://c2xlvmr6otqy4" path="res://UI/main_menu.gd" id="1_p8ccj"]
+[ext_resource type="Texture2D" uid="uid://b2bl6reknxqho" path="res://assets/main-Sheet.png" id="2_tk8dj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8nwk"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cwpn"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f40uw"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ctay"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev3b6"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0a0m"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk8dj"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mudq"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cafmx"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2mudq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8nwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cwpn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f40uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ctay")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev3b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0a0m")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tk8dj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mudq")
+}],
+"loop": true,
+"name": &"new_animation_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cafmx")
+}],
+"loop": true,
+"name": &"new_animation_3",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcix6"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmlvu"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aorne"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpm4f"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7137b"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voib7"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2nhh"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_saki1"]
+atlas = ExtResource("2_tk8dj")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t2nhh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcix6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmlvu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aorne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpm4f")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7137b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voib7")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2nhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_saki1")
+}],
+"loop": true,
+"name": &"new_animation_2",
+"speed": 5.0
+}]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_p8ccj")
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 3
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 24.0
+offset_right = 160.0
+offset_bottom = 53.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Invaders Reloaded"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -2.0
+offset_right = 66.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="PlayButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="StatisticsButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Statistics"
+
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Sprites" type="Node" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprites"]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(160, 64)
+sprite_frames = SubResource("SpriteFrames_2mudq")
+autoplay = "default"
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Sprites"]
+position = Vector2(160, 168)
+sprite_frames = SubResource("SpriteFrames_2mudq")
+animation = &"new_animation_3"
+autoplay = "new_animation_3"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Sprites"]
+modulate = Color(1, 0.011764706, 0.011764706, 1)
+position = Vector2(112, 16)
+sprite_frames = SubResource("SpriteFrames_2mudq")
+animation = &"new_animation_2"
+autoplay = "new_animation_2"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Sprites"]
+modulate = Color(1, 0.011764706, 0.011764706, 1)
+position = Vector2(216, 16)
+sprite_frames = SubResource("SpriteFrames_2mudq")
+animation = &"new_animation_2"
+autoplay = "new_animation_2"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Sprites"]
+modulate = Color(1, 0.011764706, 0.011764706, 1)
+position = Vector2(304, 16)
+sprite_frames = SubResource("SpriteFrames_2mudq")
+animation = &"new_animation_2"
+autoplay = "new_animation_2"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Sprites"]
+modulate = Color(1, 0.011764706, 0.011764706, 1)
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_2mudq")
+animation = &"new_animation_2"
+autoplay = "new_animation_2"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Sprites"]
+modulate = Color(0.2901961, 0.75686276, 0.87058824, 1)
+position = Vector2(248, 72)
+sprite_frames = SubResource("SpriteFrames_2mudq")
+animation = &"new_animation_1"
+autoplay = "new_animation_1"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Sprites"]
+modulate = Color(0.9098039, 0.31764707, 0.6627451, 1)
+position = Vector2(72, 72)
+sprite_frames = SubResource("SpriteFrames_2mudq")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="Bullets" type="Node" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(1, 0.011764706, 0.011764706, 1)
+position = Vector2(16, 40)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(1, 0.011764706, 0.011764706, 1)
+position = Vector2(112, 64)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+autoplay = "default"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(1, 0.011764706, 0.011764706, 1)
+position = Vector2(304, 104)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+autoplay = "default"
+
+[node name="AnimatedSprite2D27" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(1, 0.011764706, 0.011764706, 1)
+position = Vector2(40, 120)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+autoplay = "default"
+
+[node name="AnimatedSprite2D26" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(1, 0.011764706, 0.011764706, 1)
+position = Vector2(304, 40)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+autoplay = "default"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(1, 0.011764706, 0.011764706, 1)
+position = Vector2(216, 64)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+autoplay = "default"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(0.9098039, 0.31764707, 0.6627451, 1)
+position = Vector2(32, 88)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(0.9098039, 0.31764707, 0.6627451, 1)
+position = Vector2(136, 72)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(0.9098039, 0.31764707, 0.6627451, 1)
+position = Vector2(80, 144)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(0.9098039, 0.31764707, 0.6627451, 1)
+position = Vector2(24, 144)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(0.9098039, 0.31764707, 0.6627451, 1)
+position = Vector2(248, 160)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(0.9098039, 0.31764707, 0.6627451, 1)
+position = Vector2(272, 112)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(0.9098039, 0.31764707, 0.6627451, 1)
+position = Vector2(304, 64)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(0.2901961, 0.75686276, 0.87058824, 1)
+position = Vector2(80, 88)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation_1"
+autoplay = "new_animation_1"
+
+[node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="Bullets"]
+visible = false
+modulate = Color(0.2901961, 0.75686276, 0.87058824, 1)
+position = Vector2(32, 128)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation_1"
+autoplay = "new_animation_1"
+
+[node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(0.2901961, 0.75686276, 0.87058824, 1)
+position = Vector2(64, 128)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation_1"
+autoplay = "new_animation_1"
+
+[node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(0.2901961, 0.75686276, 0.87058824, 1)
+position = Vector2(208, 152)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation_1"
+autoplay = "new_animation_1"
+
+[node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(0.2901961, 0.75686276, 0.87058824, 1)
+position = Vector2(248, 128)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation_1"
+autoplay = "new_animation_1"
+
+[node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(0.2901961, 0.75686276, 0.87058824, 1)
+position = Vector2(280, 88)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation_1"
+autoplay = "new_animation_1"
+
+[node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(0.2901961, 0.75686276, 0.87058824, 1)
+position = Vector2(304, 128)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation_1"
+autoplay = "new_animation_1"
+
+[node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(0.2901961, 0.75686276, 0.87058824, 1)
+position = Vector2(192, 72)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation_1"
+autoplay = "new_animation_1"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(57, 101)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation_2"
+autoplay = "new_animation_2"
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(104, 160)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation_2"
+autoplay = "new_animation_2"
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(176, 88)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation_2"
+autoplay = "new_animation_2"
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(232, 104)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation_2"
+autoplay = "new_animation_2"
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(288, 136)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation_2"
+autoplay = "new_animation_2"
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="Bullets"]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(40, 64)
+sprite_frames = SubResource("SpriteFrames_t2nhh")
+animation = &"new_animation_2"
+autoplay = "new_animation_2"
+
+[connection signal="pressed" from="Panel/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/StatisticsButton" to="." method="_on_statistics_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,486 @@
+[gd_scene load_steps=2 format=3 uid="uid://su0dxapipyb6"]
+
+[ext_resource type="Script" uid="uid://db3gr6ojla01t" path="res://UI/statistics_page.gd" id="1_rmb5l"]
+
+[node name="StatisticsPage" type="CanvasLayer"]
+script = ExtResource("1_rmb5l")
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 3
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+
+[node name="BackButton" type="Button" parent="Panel"]
+layout_mode = 1
+offset_left = 28.0
+offset_top = 20.0
+offset_right = 212.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 32
+text = "Go Back"
+
+[node name="StatsLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_top = 23.0
+offset_right = 230.0
+offset_bottom = 52.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Statistics over"
+
+[node name="GamesLabel" type="Label" parent="Panel"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 64.0
+offset_top = 24.0
+offset_right = 534.0
+offset_bottom = 53.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "999 games"
+
+[node name="ResetButton" type="Button" parent="Panel"]
+layout_mode = 1
+offset_left = 1060.0
+offset_top = 20.0
+offset_right = 1244.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 32
+text = "Reset"
+
+[node name="VBoxContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -565.0
+offset_top = -278.0
+offset_right = 571.0
+offset_bottom = 314.0
+grow_horizontal = 2
+grow_vertical = 2
+follow_focus = true
+
+[node name="Stats" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Score" type="VBoxContainer" parent="Panel/VBoxContainer/Stats"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Score"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="Panel/VBoxContainer/Stats/Score"]
+layout_mode = 2
+
+[node name="Total" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Score"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Score/Total"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Total"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Score/Total"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Best" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Score"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Score/Best"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Best"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Score/Best"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Worst" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Score"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Score/Worst"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Worst"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Score/Worst"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Average" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Score"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Score/Average"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Average"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Score/Average"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Playtime" type="VBoxContainer" parent="Panel/VBoxContainer/Stats"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Playtime"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Playtime"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="Panel/VBoxContainer/Stats/Playtime"]
+layout_mode = 2
+
+[node name="Total" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Playtime"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Playtime/Total"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Total"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Playtime/Total"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Longest" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Playtime"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Playtime/Longest"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Longest"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Playtime/Longest"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Shortest" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Playtime"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Playtime/Shortest"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Shortest"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Playtime/Shortest"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Average" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Playtime"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Playtime/Average"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Average"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Playtime/Average"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Kills" type="VBoxContainer" parent="Panel/VBoxContainer/Stats"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Kills"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Kills"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="Panel/VBoxContainer/Stats/Kills"]
+layout_mode = 2
+
+[node name="Shield" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Kills"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Kills/Shield"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Shield aliens"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Kills/Shield"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Middle" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Kills"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Kills/Middle"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Middle aliens"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Kills/Middle"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Back" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Kills"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Kills/Back"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back aliens"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Kills/Back"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="UFO" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Kills"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Kills/UFO"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "UFOs"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Kills/UFO"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Shots" type="VBoxContainer" parent="Panel/VBoxContainer/Stats"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Shots"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Shots"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="Panel/VBoxContainer/Stats/Shots"]
+layout_mode = 2
+
+[node name="Fired" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Shots"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Shots/Fired"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Fired"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Shots/Fired"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Clashed" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Shots"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Shots/Clashed"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Bullet vs Bullet"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Shots/Clashed"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Returned" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Shots"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Shots/Returned"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Returned by Shield"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Shots/Returned"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Bunker" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Shots"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Shots/Bunker"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Bunker Friendly Fires"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Shots/Bunker"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="Others" type="VBoxContainer" parent="Panel/VBoxContainer/Stats"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Others"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Others"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="Panel/VBoxContainer/Stats/Others"]
+layout_mode = 2
+
+[node name="LivesLost" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Others"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Others/LivesLost"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Lives Lost"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Others/LivesLost"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="ShootingStars" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Others"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Others/ShootingStars"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Shooting Stars"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Others/ShootingStars"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="WavesCleared" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Others"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Others/WavesCleared"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Waves cleared"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Others/WavesCleared"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="BiggestWave" type="HBoxContainer" parent="Panel/VBoxContainer/Stats/Others"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/Stats/Others/BiggestWave"]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Biggest Wave"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/Stats/Others/BiggestWave"]
+modulate = Color(0.7005765, 0.996883, 0.7633884, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "123456789"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="Panel/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Panel/ResetButton" to="." method="_on_reset_button_pressed"]

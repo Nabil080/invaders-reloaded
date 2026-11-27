@@ -1,0 +1,134 @@
+[gd_scene load_steps=18 format=3 uid="uid://hii1svl4ngxt"]
+
+[ext_resource type="PackedScene" uid="uid://bj25ivyct467d" path="res://bunkers/bunker_part.tscn" id="1_kqcyv"]
+[ext_resource type="Texture2D" uid="uid://djbmll3pu1viy" path="res://assets/bunker-Sheet.png" id="2_81umf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtvk0"]
+atlas = ExtResource("2_81umf")
+region = Rect2(9, 0, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8chm"]
+atlas = ExtResource("2_81umf")
+region = Rect2(9, 10, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cxhj"]
+atlas = ExtResource("2_81umf")
+region = Rect2(9, 20, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn4n6"]
+atlas = ExtResource("2_81umf")
+region = Rect2(9, 30, 9, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_81umf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtvk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8chm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cxhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn4n6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81umf"]
+atlas = ExtResource("2_81umf")
+region = Rect2(9, 5, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl1ge"]
+atlas = ExtResource("2_81umf")
+region = Rect2(9, 15, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6lbh"]
+atlas = ExtResource("2_81umf")
+region = Rect2(9, 25, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g80i"]
+atlas = ExtResource("2_81umf")
+region = Rect2(9, 35, 9, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gnq3x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81umf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl1ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6lbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g80i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnq3x"]
+atlas = ExtResource("2_81umf")
+region = Rect2(0, 5, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl3w2"]
+atlas = ExtResource("2_81umf")
+region = Rect2(0, 15, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81b4s"]
+atlas = ExtResource("2_81umf")
+region = Rect2(0, 25, 9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pq1v"]
+atlas = ExtResource("2_81umf")
+region = Rect2(0, 35, 9, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bwxm3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnq3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl3w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81b4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pq1v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bunker" type="Node2D"]
+
+[node name="TopLeft" parent="." instance=ExtResource("1_kqcyv")]
+position = Vector2(-6, -2)
+
+[node name="TopRight" parent="." instance=ExtResource("1_kqcyv")]
+position = Vector2(6, -2)
+sprites = SubResource("SpriteFrames_81umf")
+
+[node name="BottomRight" parent="." instance=ExtResource("1_kqcyv")]
+position = Vector2(6, 3)
+sprites = SubResource("SpriteFrames_gnq3x")
+
+[node name="BottomLeft" parent="." instance=ExtResource("1_kqcyv")]
+position = Vector2(-6, 3)
+sprites = SubResource("SpriteFrames_bwxm3")
+
+[editable path="TopLeft"]
+[editable path="TopRight"]
+[editable path="BottomRight"]
+[editable path="BottomLeft"]

@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://bvmedqp2lxlch"]
+
+[ext_resource type="Script" uid="uid://dinlx3pr6ui07" path="res://enemies/enemy.gd" id="1_7frlh"]
+[ext_resource type="Texture2D" uid="uid://b2bl6reknxqho" path="res://assets/main-Sheet.png" id="2_7frlh"]
+[ext_resource type="AudioStream" uid="uid://cd5k8x23stp18" path="res://assets/enemy_shoot.wav" id="3_orwns"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orwns"]
+atlas = ExtResource("2_7frlh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6vjd"]
+atlas = ExtResource("2_7frlh")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07tka"]
+atlas = ExtResource("2_7frlh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t1x0"]
+atlas = ExtResource("2_7frlh")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epsnb"]
+atlas = ExtResource("2_7frlh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w5fm"]
+atlas = ExtResource("2_7frlh")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uba7a"]
+atlas = ExtResource("2_7frlh")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28xqf"]
+atlas = ExtResource("2_7frlh")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g67el"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orwns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6vjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07tka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t1x0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epsnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w5fm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uba7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28xqf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1q25"]
+size = Vector2(13, 6)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a6vjd"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("3_orwns")
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("1_7frlh")
+
+[node name="ShotCooldown" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="ShotMarker" type="Marker2D" parent="."]
+position = Vector2(0.51349354, 6.810215)
+rotation = -1.5707964
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.4794693, 0.01444912)
+sprite_frames = SubResource("SpriteFrames_g67el")
+frame_progress = 0.4253036
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.0031003952, 0.019935131)
+shape = SubResource("RectangleShape2D_h1q25")
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_a6vjd")
+volume_db = -25.0
+pitch_scale = 0.33
+bus = &"Sound Effects"
+
+[connection signal="timeout" from="ShotCooldown" to="." method="_on_shot_cooldown_timeout"]

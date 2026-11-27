@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4d2t5yq03sqt"]
+
+[ext_resource type="Script" uid="uid://c8v86yuooveo8" path="res://bullets/shield.gd" id="1_wfo28"]
+[ext_resource type="Texture2D" uid="uid://b2bl6reknxqho" path="res://assets/main-Sheet.png" id="1_yv78p"]
+[ext_resource type="AudioStream" uid="uid://c1bkrxstukm8v" path="res://assets/forceField_000.ogg" id="3_qohux"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfo28"]
+atlas = ExtResource("1_yv78p")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qohux"]
+atlas = ExtResource("1_yv78p")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvw31"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfo28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qohux")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hi0f5"]
+size = Vector2(7.8351192, 2.5305443)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uvw31"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("3_qohux")
+
+[node name="Shield" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_wfo28")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uvw31")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.026049614, -0.7554302)
+shape = SubResource("RectangleShape2D_hi0f5")
+
+[node name="BlockSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_uvw31")
+volume_db = -18.175

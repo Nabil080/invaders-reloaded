@@ -1,0 +1,132 @@
+[gd_scene load_steps=16 format=3 uid="uid://d3chiwb5baxu"]
+
+[ext_resource type="Script" uid="uid://b3h7rb6eir72e" path="res://core/player.gd" id="1_dnjla"]
+[ext_resource type="Texture2D" uid="uid://b2bl6reknxqho" path="res://assets/main-Sheet.png" id="2_3eadt"]
+[ext_resource type="Texture2D" uid="uid://c3prr13erconr" path="res://assets/Player-Death-Sheet.png" id="2_20ww2"]
+[ext_resource type="AudioStream" uid="uid://cdm51sg5c3db4" path="res://assets/player_shoot.wav" id="3_4ae0v"]
+[ext_resource type="AudioStream" uid="uid://foxmb27dg7m2" path="res://assets/explosionCrunch_001.ogg" id="4_y0177"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liwyg"]
+atlas = ExtResource("2_20ww2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1108m"]
+atlas = ExtResource("2_20ww2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tory2"]
+atlas = ExtResource("2_3eadt")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0jl3"]
+atlas = ExtResource("2_3eadt")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_evndh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liwyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1108m")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tory2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0jl3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1q25"]
+size = Vector2(12.995304, 6.0138435)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4ae0v"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("3_4ae0v")
+
+[sub_resource type="Animation" id="Animation_y0177"]
+resource_name = "blink"
+length = 0.2
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_20ww2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_20ww2"]
+_data = {
+&"RESET": SubResource("Animation_20ww2"),
+&"blink": SubResource("Animation_y0177")
+}
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_dnjla")
+
+[node name="ShotCooldown" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="ShotMarker" type="Marker2D" parent="."]
+position = Vector2(0.51349354, -5.7153797)
+rotation = -1.5707964
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+process_mode = 3
+position = Vector2(0.4794693, 0.01444912)
+sprite_frames = SubResource("SpriteFrames_evndh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0.0031003952, 0.019935131)
+shape = SubResource("RectangleShape2D_h1q25")
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_4ae0v")
+bus = &"Sound Effects"
+
+[node name="BlinkAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_20ww2")
+}
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_y0177")
+volume_db = -11.45
+bus = &"Sound Effects"
